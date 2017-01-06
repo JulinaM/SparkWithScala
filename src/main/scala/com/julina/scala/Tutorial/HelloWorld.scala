@@ -10,5 +10,6 @@ object HelloWorld {
     val name = "Julina"
     val nameHasUpperCase = name.exists(_.isUpper)
     println(nameHasUpperCase)
+    println(nameHasUpperCase)
   }
 }
