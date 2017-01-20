@@ -5,7 +5,7 @@ package com.julina.scala.Tutorial
   */
 object CaseExample {
 
-}
+  }
 abstract  class Notification
 
 case class Email(sourceEmail: String, title: String, body: String) extends  Notification{
