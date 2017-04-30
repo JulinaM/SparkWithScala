@@ -7,9 +7,9 @@ import scala.io.Source
   */
 object FunctionalStyle {
 
-  def main(args: Array[String]): Unit = {
-   var a;
-    args.update(0) = "/home/jmaharjan/workspace/SparkWithScala/src/main/scala/com/julina/scala/Tutorial/FunctionalStyle.scala"
+  //def main(args: Array[String]): Unit = {
+//   var a
+  /*  args.update(0) = "/home/jmaharjan/workspace/SparkWithScala/src/main/scala/com/julina/scala/Tutorial/FunctionalStyle.scala"
     if(args.length >0){
       for(line <- Source.fromFile(args(0)).getLines()){
         println(line.length +" "+ line)
@@ -17,7 +17,7 @@ object FunctionalStyle {
     }
     else
       Console.err.println("Please input filename")
-  }
+  }*/
 
 
 }

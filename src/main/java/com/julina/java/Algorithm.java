@@ -11,30 +11,31 @@ import java.util.List;
 public class Algorithm {
 
     public static class Driver{
-        private List<String> list = Arrays.asList("D1", "D2");
+        private List<String> list = Arrays.asList("D1", "D2", "D3");
         private String driver;
+        private int index = 0;
 
         public Driver(){
-            this.driver = list.get(0);
+            this.driver = list.get(index);
         }
 
         public void next(){
-            this.driver = this.driver.equalsIgnoreCase(list.get(0))? list.get(1) : list.get(0);
+            if(index == (list.size()-1)){
+                index =0;
+            }
+            else index++;
+            this.driver = list.get(index);
         }
 
     }
 
     public static class Officer{
-        private List<String> list = Arrays.asList("A", "B", "C");
+        private List<String> list = Arrays.asList("A", "B", "C", "D");
         public enum Shift{
             FIRST,
             SECOND;
-
-            @Override
-            public String toString() {
-                return super.toString();
-            }
         }
+
         private String dayOfficer;
         private String nightOfficer;
         private Shift shift;
@@ -47,7 +48,7 @@ public class Algorithm {
 
         public void next(){
             if(this.shift == Shift.SECOND) {
-                String newOfficer = getThird(this.dayOfficer, this.nightOfficer);
+                String newOfficer = getNextOfficer(this.nightOfficer);
                 this.dayOfficer = this.nightOfficer;
                 this.nightOfficer = newOfficer;
                 this.shift = Shift.FIRST;
@@ -57,12 +58,18 @@ public class Algorithm {
             }
         }
 
-        private String getThird(String dayOfficer, String nightOfficer){
-            for (String s : list) {
-                if(!s.equalsIgnoreCase(dayOfficer) && !s.equalsIgnoreCase(nightOfficer))
-                    return s;
+        private String getNextOfficer(String nightOfficer){
+            int indexOfNightOfficer = 0 ;
+            for (int i = 0; i < list.size(); i++) {
+                 if(list.get(i).equalsIgnoreCase(nightOfficer)) {
+                     indexOfNightOfficer = i;
+                     break;
+                 }
             }
-            return null;
+            if (indexOfNightOfficer == (list.size()-1)){
+                indexOfNightOfficer = -1;
+            }
+            return list.get(++indexOfNightOfficer);
         }
     }
 
